@@ -1,0 +1,31 @@
+.errorCreate{
+    color: red;
+}
+.login_text{
+    margin-bottom: -8px;
+}
+.bottom_text{
+    color: rgb(66.5,69.2,72.1);
+}
+
+.black_text{
+    color: black;
+}
+.white_text{
+    color: rgb(233.0,246.2,255.0);
+}
+.dark_text{
+    color: rgb(96.3,108.0,119.6);
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}

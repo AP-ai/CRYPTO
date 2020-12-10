@@ -1,0 +1,77 @@
+<!--
+ Name: Alex Pohorylo
+ Date: 12/7/2020
+ This is the portfolio.html page for final project in CS 416.
+-->
+{% extends "Crypto/base.html" %}
+{% load static %}
+{% block body %}
+    <div class="jumbotron"
+         style="background-color: rgb(20.4,22.7,25.1)">
+        <div class="container">
+            <div class="header">
+                <div class="row justify-content-center mt-5">
+                    <h1 class="display-1 white_text">Welcome {{ user_data.first_name }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">Portfolio Value</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text" id="total_value">!</h1>
+        </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">Bitcoin</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text" id="btc_value">!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text">{{ user_data.btc }}</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">Ethereum</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text" id="eth_value">!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text">{{ user_data.eth }}</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">Litecoin</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text" id="ltc_value">!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text">{{ user_data.ltc }}</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">Cash</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-1 white_text">${{ user_data.cash }}</h1>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src={% static "js/trades.js" %}> type = "text/javascript"</script>
+    <script> $(document).ready(load_portfolio({{ user_data.cash }},{{ user_data.btc }},{{ user_data.eth }},{{ user_data.ltc }})) </script>
+{% endblock %}

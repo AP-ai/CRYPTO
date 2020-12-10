@@ -1,0 +1,167 @@
+<!--
+ Name: Alex Pohorylo
+ Date: 12/7/2020
+ This is the trade.html page for final project in CS 416.
+-->
+{% extends "Crypto/base.html" %}
+{% load static %}
+{% block body %}
+    <div class="jumbotron"
+         style="background-color: rgb(20.4,22.7,25.1)">
+        <div class="container">
+            <div class="header">
+                <div class="row justify-content-center mt-5">
+                    <h1 class="display-1 white_text">Trade Hub</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="{% url 'trade' %}" method="POST">
+    {% csrf_token %}
+        <div class="container-fluid mb-5">
+            <div class="row justify-content-center">
+                <h1 class="display-5 dark_text">Cash</h1>
+            </div>
+            <div class="row justify-content-center">
+                <h1 class="display-1 white_text" id="cash_value">${{ user_data.cash }}</h1>
+            </div>
+        </div>
+        <div class="container-fluid mb-5">
+            <div class="row justify-content-center">
+                <h1 class="display-5 dark_text">Bitcoin</h1>
+            </div>
+            <div class="row justify-content-center">
+                <h1 class="display-1 white_text" id="btc_value">!</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center align-middle ">
+                        <button id="minus_btc_10" type="button" onclick="trade_coin_btc(10, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-10
+                        </button>
+                        <button id="minus_btc_1" type="button" onclick="trade_coin_btc(1, false)"
+                                class="btn btn-outline-danger my-4">- 1
+                        </button>
+                        <button id="minus_btc_dot1" type="button" onclick="trade_coin_btc(0.1, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-0.1
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row justify-content-center">
+                        <h1 class="display-1 white_text" id="btc_count">{{ user_data.btc }}</h1>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center">
+                        <button id="plus_btc_dot1" type="button" onclick="trade_coin_btc(0.1, true)"
+                                class="btn btn-outline-success my-4 mx-3">+0.1
+                        </button>
+                        <button id="plus_btc_1" type="button" onclick="trade_coin_btc(1, true)"
+                                class="btn btn-outline-success my-4">+ 1
+                        </button>
+                        <button id="plus_btc_10" type="button" onclick="trade_coin_btc(10, true)"
+                                class="btn btn-outline-success my-4 mx-3">+10
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mb-5">
+            <div class="row justify-content-center">
+                <h1 class="display-5 dark_text">Ethereum</h1>
+            </div>
+            <div class="row justify-content-center">
+                <h1 class="display-1 white_text" id="eth_value">!</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center align-middle ">
+                        <button id="minus_eth_10" type="button" onclick="trade_coin_eth(10, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-10
+                        </button>
+                        <button id="minus_eth_1" type="button" onclick="trade_coin_eth(1, false)"
+                                class="btn btn-outline-danger my-4">- 1
+                        </button>
+                        <button id="minus_eth_dot1" type="button" onclick="trade_coin_eth(0.1, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-0.1
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row justify-content-center">
+                        <h1 class="display-1 white_text" id="eth_count">{{ user_data.eth }}</h1>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center">
+                        <button id="plus_eth_dot1" type="button" onclick="trade_coin_eth(0.1, true)"
+                                class="btn btn-outline-success my-4 mx-3">+0.1
+                        </button>
+                        <button id="plus_eth_1" type="button" onclick="trade_coin_eth(1, true)"
+                                class="btn btn-outline-success my-4">+ 1
+                        </button>
+                        <button id="plus_eth_10" type="button" onclick="trade_coin_eth(10, true)"
+                                class="btn btn-outline-success my-4 mx-3">+10
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-5">
+            <div class="row justify-content-center">
+                <h1 class="display-5 dark_text">Litecoin</h1>
+            </div>
+            <div class="row justify-content-center">
+                <h1 class="display-1 white_text" id="ltc_value">!</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center align-middle ">
+                        <button id="minus_ltc_10" type="button" onclick="trade_coin_ltc(10, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-10
+                        </button>
+                        <button id="minus_ltc_1" type="button" onclick="trade_coin_ltc(1, false)"
+                                class="btn btn-outline-danger my-4">- 1
+                        </button>
+                        <button id="minus_ltc_dot1" type="button" onclick="trade_coin_ltc(0.1, false)"
+                                class="btn btn-outline-danger my-4 mx-3">-0.1
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row justify-content-center">
+                        <h1 class="display-1 white_text" id="ltc_count">{{ user_data.ltc }}</h1>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="row my-3 justify-content-center">
+                        <button id="plus_ltc_dot1" type="button" onclick="trade_coin_ltc(0.1, true)"
+                                class="btn btn-outline-success my-4 mx-3">+0.1
+                        </button>
+                        <button id="plus_ltc_1" type="button" onclick="trade_coin_ltc(1, true)"
+                                class="btn btn-outline-success my-4">+ 1
+                        </button>
+                        <button id="plus_ltc_10" type="button" onclick="trade_coin_ltc(10, true)"
+                                class="btn btn-outline-success my-4 mx-3">+10
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <input type="submit" class="btn btn-lg btn-outline-primary mb-5 py-3 px-5" value="Submit Trades">
+        </div>
+        <input type="hidden" name="cash_value_hidden" id="cash_value_hidden" value="{{ user_data.cash }}">
+        <input type="hidden" name="btc_count_hidden" id="btc_count_hidden" value="{{ user_data.btc }}">
+        <input type="hidden" name="eth_count_hidden" id="eth_count_hidden" value="{{ user_data.eth }}">
+        <input type="hidden" name="ltc_count_hidden" id="ltc_count_hidden" value="{{ user_data.ltc }}">
+    </form>
+
+{% endblock %}
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src={% static "js/trades.js" %}> type = "text/javascript"</script>
+    <script> $(document).ready(load_trades({{ user_data.cash }}, {{ user_data.btc }}, {{ user_data.eth }}, {{ user_data.ltc }})) </script>
+{% endblock %}

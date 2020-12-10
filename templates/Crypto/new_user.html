@@ -1,0 +1,54 @@
+<!--
+ Name: Alex Pohorylo
+ Date: 12/7/2020
+ This is the new_user.html page for final project in CS 416.
+-->
+{% extends "Crypto/base.html" %}
+{% load static %}
+{% block body %}
+    <div class="min-vh-100 d-flex justify-content-center align-items-center"
+         style="background-color: rgb(20.4,22.7,25.1)">
+
+        <div class="border border-success rounded px-5 pt-5 pb-3" style="background-color: whitesmoke">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <img src="{% static 'images/login-icon.png' %}" class="img-fluid" style="width:120px;height:120px;"
+                         alt="N/A">
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-4 black_text"><b>Create Account</b></h1>
+                </div>
+                <div class="row justify-content-center">
+                    <p class="errorCreate mt-3">{{ errorMessage }}</p>
+                </div>
+                <form action="{% url 'new_user' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control" id="login" name="login" placeholder="Login">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control my-3" id="first_name" name="first_name" placeholder="First Name">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control my-3" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control mb-3" id="password2" name="password2" placeholder="Confirm Password">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="submit" id="addNewButton" class="btn btn-success my-3 px-5" value="Create">
+                    </div>
+                </form>
+                <div class="row justify-content-center">
+                    <p class="login_text mt-3 text-secondary">Already have an Account?</p>
+                </div>
+                <div class="row justify-content-center">
+                    <a href="{% url 'login_user' %}" class="text-decoration-none mt-1">Log In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

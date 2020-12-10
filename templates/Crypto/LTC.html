@@ -1,0 +1,108 @@
+<!--
+ Name: Alex Pohorylo
+ Date: 12/7/2020
+ This is the ltc.html page for final project in CS 416.
+-->
+{% extends "Crypto/base.html" %}
+{% load static %}
+{% block body %}
+    <div class="jumbotron mb-0" style="background-color: rgb(20.4,22.7,25.1)">
+        <div class="container">
+            <div class="header">
+                <div class="row justify-content-center mt-5">
+                    <h1 class="display-1 white_text">Litecoin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-1" id="current_price">!</h1>
+        </div>
+        <div class="row justify-content-center mb-2">
+            <p class="login_text dark_text">In last 24h</p>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-5" id="price_change_24h">!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-5" id="price_change_percentage_24h">!</h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 my-5">
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">24H High</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3 white_text" id="high24">!</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">24h Low</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3 white_text" id="low24">!</h1>
+                </div>
+            </div>
+            <div class="col-md-6 my-5">
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">30d Price Change</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3" id="change30d">!</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">60d Price Change</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3" id="change60d">!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 my-5">
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">All Time High</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3 white_text" id="ath">!</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text" id="ath_date">!</h1>
+                </div>
+            </div>
+            <div class="col-md-6 my-5">
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text">All Time Low</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-3 white_text" id="atl">!</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="display-5 dark_text" id="atl_date">!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text">In circulation:</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-3 white_text" id="circulating_supply">!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="display-5 dark_text" id="last_updated">!</h1>
+        </div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src={% static "js/coins.js" %}> type = "text/javascript"</script>
+    <script> $(document).ready(load_coin_info('https://api.coingecko.com/api/v3/coins/litecoin')) </script>
+{% endblock %}
