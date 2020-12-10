@@ -10,25 +10,19 @@ import re
 
 # Create your views here.
 def index(request):
-    return render(request, 'crypto/index.html')
+    return render(request, 'Crypto/index.html')
 
 
 def btc(request):
-    tasks = UserTable.objects.all()
-    context = {'tasks': tasks}
-    return render(request, 'crypto/btc.html', context)
+    return render(request, 'Crypto/btc.html')
 
 
 def eth(request):
-    tasks = UserTable.objects.all()
-    context = {'tasks': tasks}
-    return render(request, 'crypto/eth.html', context)
+    return render(request, 'Crypto/eth.html')
 
 
 def ltc(request):
-    tasks = UserTable.objects.all()
-    context = {'tasks': tasks}
-    return render(request, 'crypto/ltc.html', context)
+    return render(request, 'Crypto/ltc.html')
 
 
 def login_user(request):
