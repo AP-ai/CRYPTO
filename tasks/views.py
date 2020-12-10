@@ -10,19 +10,19 @@ import re
 
 # Create your views here.
 def index(request):
-    return render(request, 'Crypto/index.html')
+    return render(request, 'crypto/index.html')
 
 
 def btc(request):
-    return render(request, 'Crypto/btc.html')
+    return render(request, 'crypto/btc.html')
 
 
 def eth(request):
-    return render(request, 'Crypto/eth.html')
+    return render(request, 'crypto/eth.html')
 
 
 def ltc(request):
-    return render(request, 'Crypto/ltc.html')
+    return render(request, 'crypto/ltc.html')
 
 
 def login_user(request):
